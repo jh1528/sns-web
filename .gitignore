@@ -1,0 +1,18 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+
+# Private keys
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# OS / editor junk
+.DS_Store
+*.swp
+*.swo
+*~
