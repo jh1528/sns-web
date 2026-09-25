@@ -1,0 +1,12 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: sns-web
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - ./website:/usr/share/nginx/html:ro
+
+    restart: unless-stopped
