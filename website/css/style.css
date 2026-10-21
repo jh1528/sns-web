@@ -1,3 +1,28 @@
+/*
+ * style.css — Signs-n-$hine shared website styles
+ *
+ * Purpose:
+ *   Provide shared branding, homepage components, Careers layout,
+ *   responsive behavior, and Careers print presentation.
+ *
+ * Usage:
+ *   Link this file from pages using href="css/style.css".
+ *   Careers-specific styles require class="careers-page" on body.
+ *
+ * Author: Jared Husson
+ *
+ * Version History:
+ *   0.2.0 | 2026-10-18
+ *   - Added scoped Careers layout and print styles.
+ *   - Reused shared logo, contact buttons, and footer.
+ *   - Preserved existing homepage presentation.
+ */
+
+
+/* ==========================================================================
+   SHARED BASE
+   ========================================================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -15,7 +40,9 @@ a {
 }
 
 
-/* HEADER */
+/* ==========================================================================
+   SHARED HEADER AND LOGO
+   ========================================================================== */
 
 .site-header {
     padding: 18px 16px 8px;
@@ -30,22 +57,34 @@ a {
 }
 
 
-/* MAIN */
+/* ==========================================================================
+   HOMEPAGE MAIN CONTENT
+   ========================================================================== */
 
 .site-main {
     padding: 10px 20px 30px;
 }
 
 
-/* FREE QUOTE BUTTON */
+/* ==========================================================================
+   HOMEPAGE FREE QUOTE BUTTON
+   ========================================================================== */
 
 .quote-button {
     display: inline-block;
     padding: 16px 28px;
 
     background:
-        radial-gradient(circle at 20% 30%, rgba(120, 255, 130, 0.95) 0 2px, transparent 3px),
-        radial-gradient(circle at 75% 65%, rgba(120, 255, 130, 0.85) 0 2px, transparent 3px),
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(120, 255, 130, 0.95) 0 2px,
+            transparent 3px
+        ),
+        radial-gradient(
+            circle at 75% 65%,
+            rgba(120, 255, 130, 0.85) 0 2px,
+            transparent 3px
+        ),
         linear-gradient(
             135deg,
             #ff5aaa 0%,
@@ -66,14 +105,16 @@ a {
 }
 
 
-/* CONTACT BUTTONS */
+/* ==========================================================================
+   SHARED CONTACT BUTTONS
+   ========================================================================== */
 
 .contact-buttons {
-    margin-top: 18px;
     display: flex;
     justify-content: center;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
 }
 
 .contact-button {
@@ -90,14 +131,16 @@ a {
 }
 
 
-/* CAREERS + CONTACT */
+/* ==========================================================================
+   HOMEPAGE CAREERS AND CONTACT LINKS
+   ========================================================================== */
 
 .main-links {
-    margin-top: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    margin-top: 24px;
 }
 
 .main-link-button {
@@ -107,8 +150,16 @@ a {
     padding: 15px 20px;
 
     background:
-        radial-gradient(circle at 18% 30%, rgba(120, 255, 130, 0.95) 0 2px, transparent 3px),
-        radial-gradient(circle at 80% 70%, rgba(120, 255, 130, 0.85) 0 2px, transparent 3px),
+        radial-gradient(
+            circle at 18% 30%,
+            rgba(120, 255, 130, 0.95) 0 2px,
+            transparent 3px
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(120, 255, 130, 0.85) 0 2px,
+            transparent 3px
+        ),
         linear-gradient(
             135deg,
             #ff5aaa 0%,
@@ -129,7 +180,9 @@ a {
 }
 
 
-/* FOOTER */
+/* ==========================================================================
+   SHARED FOOTER
+   ========================================================================== */
 
 .site-footer {
     margin-top: 30px;
@@ -144,10 +197,98 @@ a {
 }
 
 
-/* TABLET */
+/* ==========================================================================
+   CAREERS PAGE
+   All Careers layout rules are scoped to .careers-page.
+   ========================================================================== */
+
+.careers-page {
+    --careers-accent: #b51263;
+    --careers-tint: #fff3f8;
+}
+
+.careers-page .site-header {
+    padding-bottom: 0;
+}
+
+.careers-page .careers-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 40px;
+    line-height: 1.6;
+}
+
+.careers-page .careers-content h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+}
+
+.careers-page .careers-content h2 {
+    margin: 0 0 12px;
+    font-size: 1.6rem;
+}
+
+.careers-page .careers-intro {
+    max-width: 620px;
+    margin: 16px auto 28px;
+    font-size: 1.15rem;
+}
+
+
+/* Job highlights use semantic list markup in careers.html. */
+
+.careers-page .careers-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.careers-page .careers-highlights li {
+    padding: 20px 12px;
+
+    background: var(--careers-tint);
+
+    border-top: 4px solid var(--careers-accent);
+    border-radius: 8px;
+}
+
+.careers-page .careers-highlights strong {
+    display: block;
+    color: var(--careers-accent);
+    font-size: 1.2rem;
+}
+
+.careers-page .careers-welcome,
+.careers-page .careers-next-step {
+    max-width: 680px;
+    margin: 36px auto 0;
+}
+
+
+/* Keep keyboard focus clearly visible. */
+
+.careers-page a:focus-visible {
+    outline: 3px solid var(--careers-accent);
+    outline-offset: 5px;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .careers-page .careers-highlights {
+        grid-template-columns: 1fr;
+    }
+}
 
 @media (min-width: 768px) {
-
     .site-logo {
         width: 390px;
     }
@@ -156,16 +297,62 @@ a {
         flex-direction: row;
         justify-content: center;
     }
-
 }
 
-
-/* DESKTOP */
-
 @media (min-width: 1200px) {
-
     .site-logo {
         width: 460px;
     }
+}
 
+
+/* ==========================================================================
+   CAREERS PRINT PRESENTATION
+   Show contact destinations on paper where buttons cannot be clicked.
+   ========================================================================== */
+
+@media print {
+    .careers-page .site-logo {
+        width: 220px;
+    }
+
+    .careers-page .careers-content {
+        max-width: none;
+        padding: 0;
+        font-size: 11pt;
+    }
+
+    .careers-page .careers-content h1 {
+        font-size: 26pt;
+    }
+
+    .careers-page .careers-highlights,
+    .careers-page .careers-welcome,
+    .careers-page .careers-next-step {
+        break-inside: avoid;
+    }
+
+    .careers-page .contact-button,
+    .careers-page .site-footer {
+        background: white;
+        color: black;
+        box-shadow: none;
+    }
+
+    .careers-page .careers-next-step .contact-buttons {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .careers-page .careers-next-step .contact-button {
+        padding: 4px;
+    }
+
+    .careers-page .careers-next-step a[href^="sms:"]::after {
+        content: " — 585-298-5162";
+    }
+
+    .careers-page .careers-next-step a[href^="mailto:"]::after {
+        content: " — Kimmy16Mathews@gmail.com";
+    }
 }

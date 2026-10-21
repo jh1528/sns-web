@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+    careersv1.html — Signs-n-$hine recruitment design preview
+    Purpose: Compare a new recruitment layout with careers.html.
+    Behavior: Opens an accessible application dialog. Submission is preview-only.
+    Dependencies: css/style.css, css/careersv1.css,
+                  js/careersv1.js, images/logo.png.
+    Data: No application data is transmitted or persistently stored.
+    Author: Jared Husson
+    Version History:
+      0.1.0 | 2026-10-20 | Initial comparison design and application preview.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers Preview | Signs-n-$hine Cleaning Company</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/careersv1.css">
+    <script src="js/careersv1.js" defer></script>
+</head>
+
+<body class="careers-v1">
+    <header class="site-header">
+        <a href="index.html" aria-label="Signs-n-$hine home">
+            <img
+                src="images/logo.png"
+                alt="Signs-n-$hine Cleaning Company"
+                class="site-logo"
+            >
+        </a>
+    </header>
+
+    <main class="recruitment">
+        <!-- Lead with the applicant's opportunity and a clear next step. -->
+        <section class="recruitment-hero" aria-labelledby="careers-title">
+            <p class="eyebrow">JOIN THE SIGNS-N-$HINE TEAM</p>
+
+            <h1 id="careers-title">
+                Bring Your Willingness to Learn.
+                <span>Help Us Make Homes Shine.</span>
+            </h1>
+
+            <p class="recruitment-intro">
+                Looking for extra income or a full-time opportunity?
+                Join Signs-n-$hine and help make homes cleaner and more
+                comfortable across Rochester and nearby communities.
+                We provide training, a supportive team, and flexible hours
+                for part-time work. Bring your reliability, care, and
+                willingness to learn—we’ll help you get started.
+            </p>
+
+            <button class="apply-button" type="button" id="open-application">
+                Apply Now
+            </button>
+
+            <p class="hero-note">No prior cleaning experience required.</p>
+
+            <noscript>
+                <p>
+                    To apply, text
+                    <a href="sms:5852985162">585-298-5162</a>
+                    or email
+                    <a href="mailto:Kimmy16Mathews@gmail.com">Kim</a>.
+                </p>
+            </noscript>
+        </section>
+
+        <!-- Two independent sections stack naturally on smaller screens. -->
+        <div class="recruitment-columns">
+            <section class="recruitment-card" aria-labelledby="offer-title">
+                <p class="eyebrow">EARN. LEARN. CONTRIBUTE.</p>
+                <h2 id="offer-title">What We Offer</h2>
+
+                <ul class="offer-list">
+                    <li>
+                        <strong>Competitive hourly pay</strong>
+                        Bring care and commitment to work that matters.
+                    </li>
+                    <li>
+                        <strong>Training provided</strong>
+                        Learn the work with guidance from our team.
+                    </li>
+                    <li>
+                        <strong>Full-time and part-time opportunities</strong>
+                        Full-time preferred. Part-time applicants welcome.
+                    </li>
+                    <li>
+                        <strong>Flexible part-time hours</strong>
+                        Talk with us about your availability.
+                    </li>
+                    <li>
+                        <strong>A supportive team</strong>
+                        Your effort and contribution matter.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="recruitment-card area-card"
+                     aria-labelledby="area-title">
+                <p class="eyebrow">LOCAL WORK. A VISIBLE DIFFERENCE.</p>
+                <h2 id="area-title">Where You’ll Work</h2>
+
+                <p>
+                    Help make homes shine in Rochester, NY, and surrounding
+                    communities.
+                </p>
+
+                <ul class="community-list" aria-label="Work areas include">
+                    <li>Rochester</li>
+                    <li>Pittsford</li>
+                    <li>Penfield</li>
+                    <li>Fairport</li>
+                </ul>
+
+                <p>
+                    There’s satisfaction in seeing the difference your
+                    work makes—and knowing you helped someone feel
+                    comfortable at home.
+                </p>
+
+                <div class="questions">
+                    <h3>Have a question first?</h3>
+                    <p>Talk with Kim about available work and schedules.</p>
+                    <a href="sms:5852985162">Text Kim</a>
+                    <span aria-hidden="true"> · </span>
+                    <a href="mailto:Kimmy16Mathews@gmail.com">Email Kim</a>
+                </div>
+            </section>
+        </div>
+
+        <a class="compare-link" href="careers.html">
+            View the original careers page
+        </a>
+    </main>
+
+    <!-- Native dialog provides modal focus handling and Escape support. -->
+    <dialog id="application-dialog" aria-labelledby="application-title">
+        <div class="dialog-heading">
+            <h2 id="application-title">Apply to Join Us</h2>
+            <button type="button" id="close-application"
+                    class="close-button" aria-label="Close application">
+                &times;
+            </button>
+        </div>
+
+        <p id="preview-notice" class="preview-notice">
+            Design preview: this form does not send applications yet.
+        </p>
+
+        <form id="application-form" aria-describedby="preview-notice">
+            <div class="form-grid">
+                <label>
+                    Full name
+                    <input name="name" autocomplete="name"
+                           maxlength="120" required>
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" name="email" autocomplete="email"
+                           maxlength="254" required>
+                </label>
+
+                <label>
+                    Phone
+                    <input type="tel" name="phone" autocomplete="tel"
+                           maxlength="40" required>
+                </label>
+
+                <label>
+                    Work preference
+                    <select name="workPreference" required>
+                        <option value="">Choose one</option>
+                        <option>Full-time</option>
+                        <option>Part-time</option>
+                        <option>Either</option>
+                    </select>
+                </label>
+
+                <label class="full-width">
+                    When are you available to work?
+                    <textarea name="availability" rows="3"
+                              maxlength="1500" required
+                              placeholder="Tell us which days and hours work for you."></textarea>
+                </label>
+
+                <label class="full-width">
+                    Cleaning experience (optional)
+                    <textarea name="experience" rows="2" maxlength="1500"
+                              placeholder="Beginners are welcome—we provide training."></textarea>
+                </label>
+
+                <label class="full-width">
+                    Anything else you’d like us to know? (optional)
+                    <textarea name="message" rows="2"
+                              maxlength="1500"></textarea>
+                </label>
+            </div>
+
+            <button type="submit" class="apply-button">
+                Preview Application
+            </button>
+
+            <p id="application-status" role="status"></p>
+        </form>
+    </dialog>
+
+    <footer class="site-footer">
+        <p>Signs-n-$hine Cleaning Company</p>
+        <p>Rochester, NY &amp; surrounding communities</p>
+    </footer>
+</body>
+</html>
