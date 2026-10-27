@@ -1,0 +1,288 @@
+/*
+ * careersv1.css — Recruitment comparison design
+ * Purpose: Style careersv1.html without changing other pages.
+ * Dependencies: Shared css/style.css, loaded first.
+ * Behavior: Two columns on desktop; stacked cards on mobile.
+ * Author: Jared Husson
+ * Version History:
+ *   0.1.0 | 2026-10-20 | Initial responsive layout and application dialog.
+ */
+
+/* Page tokens and typography. */
+.careers-v1 {
+    --accent: #a51059;
+    --ink: #202c3b;
+    --muted: #536172;
+    --border: #dce3eb;
+    background: #f8fafc;
+    color: var(--ink);
+    line-height: 1.65;
+}
+
+.careers-v1 .site-header {
+    background: white;
+}
+
+.careers-v1 .recruitment {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 24px;
+}
+
+.careers-v1 .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.careers-v1 h1 {
+    max-width: 900px;
+    margin: 14px auto 22px;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    line-height: 1.16;
+}
+
+.careers-v1 h1 span {
+    display: block;
+    color: var(--accent);
+}
+
+.careers-v1 h2 {
+    margin: 8px 0 18px;
+    font-size: 1.75rem;
+    line-height: 1.25;
+}
+
+.careers-v1 h3 {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+}
+
+.careers-v1 .recruitment-intro {
+    max-width: 740px;
+    margin: 0 auto 26px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+/* Shared action styles within this preview. */
+.careers-v1 button,
+.careers-v1 input,
+.careers-v1 select,
+.careers-v1 textarea {
+    font: inherit;
+}
+
+.careers-v1 .apply-button {
+    padding: 13px 30px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.careers-v1 .apply-button:hover {
+    background: #800d45;
+}
+
+.careers-v1 .hero-note {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.careers-v1 a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.careers-v1 :focus-visible {
+    outline: 3px solid #175fa5;
+    outline-offset: 4px;
+}
+
+/* Information cards. */
+.careers-v1 .recruitment-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 42px;
+    text-align: left;
+}
+
+.careers-v1 .recruitment-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: white;
+}
+
+.careers-v1 .offer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.careers-v1 .offer-list li {
+    padding: 13px 0;
+    color: var(--muted);
+}
+
+.careers-v1 .offer-list li + li {
+    border-top: 1px solid var(--border);
+}
+
+.careers-v1 .offer-list strong {
+    display: block;
+    color: var(--ink);
+}
+
+.careers-v1 .community-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin: 22px 0;
+    padding: 0;
+}
+
+.careers-v1 .community-list li {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #eef4fa;
+    color: #244e73;
+    font-weight: 600;
+}
+
+.careers-v1 .questions {
+    margin-top: 28px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.careers-v1 .questions p {
+    margin-top: 0;
+}
+
+.careers-v1 .compare-link {
+    display: inline-block;
+    margin-top: 28px;
+}
+
+/* Application dialog: scrolling stays inside the popup. */
+.careers-v1 dialog {
+    width: min(640px, calc(100% - 24px));
+    max-height: 90vh;
+    max-height: 90dvh;
+    padding: 26px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    color: var(--ink);
+    text-align: left;
+}
+
+.careers-v1 dialog::backdrop {
+    background: rgb(15 23 42 / 65%);
+}
+
+.careers-v1:has(dialog[open]) {
+    overflow: hidden;
+}
+
+.careers-v1 .dialog-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.careers-v1 .close-button {
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 6px;
+    background: #eef2f6;
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.careers-v1 .preview-notice {
+    padding: 12px;
+    border-radius: 6px;
+    background: #fff4d9;
+    color: #654700;
+}
+
+.careers-v1 .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.careers-v1 label {
+    display: block;
+    font-weight: 600;
+}
+
+.careers-v1 input,
+.careers-v1 select,
+.careers-v1 textarea {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #8996a5;
+    border-radius: 6px;
+    background: white;
+    color: var(--ink);
+}
+
+.careers-v1 textarea {
+    resize: vertical;
+}
+
+.careers-v1 .full-width {
+    grid-column: 1 / -1;
+}
+
+/* Responsive and print presentation. */
+@media (max-width: 700px) {
+    .careers-v1 .recruitment-columns,
+    .careers-v1 .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .careers-v1 .recruitment {
+        padding: 28px 16px;
+    }
+
+    .careers-v1 .recruitment-card {
+        padding: 22px;
+    }
+}
+
+@media print {
+    .careers-v1 {
+        background: white;
+    }
+
+    .careers-v1 .apply-button,
+    .careers-v1 .compare-link,
+    .careers-v1 dialog {
+        display: none;
+    }
+
+    .careers-v1 .recruitment-card {
+        break-inside: avoid;
+    }
+
+    .careers-v1 .questions a::after {
+        content: " (" attr(href) ")";
+    }
+}
