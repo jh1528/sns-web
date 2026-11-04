@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <!--
     careers.html — Signs-n-$hine recruitment page
-    Purpose: Present the opening and provide applicant contact options.
-    Dependencies: css/style.css and images/logo.png.
-    Behavior: Contact links open messaging/email apps; no data is stored.
+
+    Purpose:
+        Present the opportunity and provide an online application.
+
+    Dependencies:
+        css/style.css
+        images/logo.png
+        Published Signs-n-$hine Google Form
+
+    Behavior:
+        The Apply Now button opens the Google Form.
+        Applications are stored through Google Forms and its linked Sheet.
+
     Author: Jared Husson
-    Version: 0.2.0 | 2026-10-18
-    Changes: Simplified content, highlighted training and disability inclusion.
+
+    Version History:
+        0.3.0 | 2026-10-27
+        - Added the online application link.
+        - Kept one application action on the careers page.
+
+        0.2.0 | 2026-10-18
+        - Simplified content.
+        - Highlighted training and disability inclusion.
 -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Careers | Signs-n-$hine Cleaning Company</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -30,7 +49,7 @@
 
     <main class="careers-content">
 
-        <!-- Opening and confirmed job highlights. -->
+        <!-- Opening and job highlights. -->
         <section aria-labelledby="careers-title">
             <h1 id="careers-title">Join Our Cleaning Team</h1>
 
@@ -46,7 +65,7 @@
             </ul>
         </section>
 
-        <!-- Inclusion describes our approach without promising every assignment. -->
+        <!-- Inclusion and available opportunities. -->
         <section class="careers-welcome" aria-labelledby="welcome-title">
             <h2 id="welcome-title">Your Abilities Matter</h2>
 
@@ -63,25 +82,21 @@
             </p>
         </section>
 
-        <!-- Temporary contact route until the application form is ready. -->
+        <!-- Online application. -->
         <section class="careers-next-step" aria-labelledby="next-step-title">
             <h2 id="next-step-title">Take the First Step</h2>
 
             <p>
-                Our application form is being prepared.
-                For now, contact Kim about available work and schedules.
+                Ready to join us? Complete our online application
+                to tell us about yourself and your availability.
             </p>
 
             <div class="contact-buttons">
-                <a href="sms:5852985162" class="contact-button">
-                    Text Kim
-                </a>
-
                 <a
-                    href="mailto:Kimmy16Mathews@gmail.com?subject=Cleaning%20Job%20Inquiry"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfqX7YXfDSvDk1jBxurRO0pOlBb_fXDr3pULxLAXdL04O7FSw/viewform"
                     class="contact-button"
                 >
-                    Email Kim
+                    Apply Now
                 </a>
             </div>
         </section>
