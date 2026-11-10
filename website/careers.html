@@ -3,7 +3,7 @@
     careers.html — Signs-n-$hine recruitment page
 
     Purpose:
-        Present the opportunity and provide an online application.
+        Present the opportunity and open the Google Form in a dialog.
 
     Dependencies:
         css/style.css
@@ -11,22 +11,30 @@
         Published Signs-n-$hine Google Form
 
     Behavior:
-        The Apply Now button opens the Google Form.
-        Applications are stored through Google Forms and its linked Sheet.
+        Clicking the logo returns to this website's index.html.
+        Apply Now opens the application dialog.
+        Google Forms handles submission and confirmation.
+        Return to Home opens this website's index.html.
+        The home button remains available throughout the application.
 
     Author: Jared Husson
 
     Version History:
+        0.4.1 | 2026-11-09
+        - Made the logo a home link with an accessible label.
+
+        0.4.0 | 2026-11-09
+        - Added application dialog and Return to Home button.
+        - Updated teamwork and inclusion wording.
+        - Added a direct application link as a loading fallback.
+
         0.3.0 | 2026-10-27
         - Added the online application link.
-        - Kept one application action on the careers page.
 
         0.2.0 | 2026-10-18
-        - Simplified content.
         - Highlighted training and disability inclusion.
 -->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,22 +42,124 @@
     <title>Careers | Signs-n-$hine Cleaning Company</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .site-home-link {
+            display: inline-block;
+            border-radius: 6px;
+        }
+
+        .site-home-link:focus-visible {
+            outline: 3px solid #1459c7;
+            outline-offset: 5px;
+        }
+
+        .application-dialog {
+            box-sizing: border-box;
+            width: min(96vw, 800px);
+            max-height: 94vh;
+            padding: 0;
+            border: 0;
+            border-radius: 12px;
+            color: #222;
+            background: #fff;
+        }
+
+        .application-dialog::backdrop {
+            background: rgb(0 0 0 / 65%);
+        }
+
+        .application-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .application-heading h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .application-close {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            background: #fff;
+            color: #222;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .application-frame {
+            display: block;
+            width: 100%;
+            height: 60vh;
+            border: 0;
+        }
+
+        .application-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .application-footer p {
+            margin: 12px 0 0;
+            font-size: 0.9rem;
+        }
+
+        .application-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 8px 20px;
+            border-radius: 6px;
+            background: #245c39;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .application-home:hover {
+            background: #194329;
+        }
+
+        .application-dialog a:focus-visible,
+        .application-dialog button:focus-visible,
+        #open-application:focus-visible {
+            outline: 3px solid #1459c7;
+            outline-offset: 3px;
+        }
+
+        .application-welcome {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body class="careers-page">
-
-    <!-- Shared brand identity. -->
     <header class="site-header">
-        <img
-            src="images/logo.png"
-            alt="Signs-n-$hine Cleaning Company"
-            class="site-logo"
+        <a
+            href="index.html"
+            class="site-home-link"
+            aria-label="Signs-n-$hine home"
         >
+            <img
+                src="images/logo.png"
+                alt="Signs-n-$hine Cleaning Company"
+                class="site-logo"
+            >
+        </a>
     </header>
 
     <main class="careers-content">
-
-        <!-- Opening and job highlights. -->
         <section aria-labelledby="careers-title">
             <h1 id="careers-title">Join Our Cleaning Team</h1>
 
@@ -59,30 +169,36 @@
             </p>
 
             <ul class="careers-highlights">
-                <li><strong>$16/hour</strong>Hourly pay</li>
-                <li><strong>Training provided</strong>Learn with us</li>
-                <li><strong>Full-time &amp; part-time</strong>Full-time preferred</li>
+                <li>
+                    <strong>Competitive hourly pay</strong>
+                    Work that makes a difference
+                </li>
+                <li>
+                    <strong>Training provided</strong>
+                    Learn with us
+                </li>
+                <li>
+                    <strong>Full-time &amp; part-time</strong>
+                    Full-time preferred
+                </li>
             </ul>
         </section>
 
-        <!-- Inclusion and available opportunities. -->
-        <section class="careers-welcome" aria-labelledby="welcome-title">
-            <h2 id="welcome-title">Your Abilities Matter</h2>
+        <section class="careers-welcome" aria-labelledby="team-title">
+            <h2 id="team-title">A Team You Can Count On</h2>
 
             <p>
-                We welcome applicants with disabilities and care about
-                creating opportunities to work and contribute.
-                We’ll listen and discuss accommodations and available
-                duties with you.
+                Bring your reliability, attention to detail, and willingness
+                to learn. We provide training to help you get started and
+                take pride in your work.
             </p>
 
             <p>
-                Looking for full-time work or part-time income alongside
+                Looking for full-time work or part-time hours alongside
                 school or other commitments? We’d like to hear from you.
             </p>
         </section>
 
-        <!-- Online application. -->
         <section class="careers-next-step" aria-labelledby="next-step-title">
             <h2 id="next-step-title">Take the First Step</h2>
 
@@ -91,8 +207,15 @@
                 to tell us about yourself and your availability.
             </p>
 
+            <p class="application-welcome">
+                We welcome applicants of all backgrounds and abilities.
+                If you need an accommodation during the application
+                process, <a href="sms:5852985162">contact Kim by text</a>.
+            </p>
+
             <div class="contact-buttons">
                 <a
+                    id="open-application"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfqX7YXfDSvDk1jBxurRO0pOlBb_fXDr3pULxLAXdL04O7FSw/viewform"
                     class="contact-button"
                 >
@@ -100,12 +223,106 @@
                 </a>
             </div>
         </section>
-
     </main>
+
+    <dialog
+        id="application-dialog"
+        class="application-dialog"
+        aria-labelledby="application-title"
+    >
+        <div class="application-heading">
+            <h2 id="application-title">
+                Signs-n-$hine Job Application
+            </h2>
+
+            <button
+                id="close-application"
+                class="application-close"
+                type="button"
+                aria-label="Close application"
+                autofocus
+            >
+                &times;
+            </button>
+        </div>
+
+        <iframe
+            id="application-frame"
+            class="application-frame"
+            title="Signs-n-$hine Job Application form"
+        ></iframe>
+
+        <div class="application-footer">
+            <a href="index.html" class="application-home">
+                <span aria-hidden="true">🏠</span>
+                Return to Home
+            </a>
+
+            <p>
+                Form not loading?
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfqX7YXfDSvDk1jBxurRO0pOlBb_fXDr3pULxLAXdL04O7FSw/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open the application in a new tab
+                </a>.
+            </p>
+        </div>
+    </dialog>
 
     <footer class="site-footer">
         <p>Signs-n-$hine Cleaning Company</p>
     </footer>
 
+    <script>
+        (() => {
+            "use strict";
+
+            const openLink = document.getElementById("open-application");
+            const dialog = document.getElementById("application-dialog");
+            const closeButton = document.getElementById("close-application");
+            const frame = document.getElementById("application-frame");
+
+            // Keep the normal application link as a browser fallback.
+            if (typeof dialog.showModal !== "function") {
+                return;
+            }
+
+            openLink.setAttribute("aria-haspopup", "dialog");
+
+            openLink.addEventListener("click", (event) => {
+                // Preserve normal new-tab and modified-click behavior.
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.metaKey ||
+                    event.shiftKey ||
+                    event.altKey
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                // Load once to avoid resetting the form when reopened.
+                if (!frame.hasAttribute("src")) {
+                    frame.src = openLink.href + "?embedded=true";
+                }
+
+                if (!dialog.open) {
+                    dialog.showModal();
+                }
+            });
+
+            closeButton.addEventListener("click", () => {
+                dialog.close();
+            });
+
+            dialog.addEventListener("close", () => {
+                openLink.focus();
+            });
+        })();
+    </script>
 </body>
 </html>
