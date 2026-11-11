@@ -1,0 +1,439 @@
+/*
+    testimonials.css — Signs-n-$hine Testimonials presentation
+
+    Dependencies:
+        Load after css/style.css.
+
+    Author: Jared Husson
+
+    Version History:
+        0.1.1 | 2026-11-11
+        - Matched the approved heading scale and footer.
+        - Added pink buttons with black and green interaction states.
+        - Added Home navigation styling.
+        - Preserved review forms, filters, cards, and pink stars.
+
+        0.1.0 | 2026-11-10
+        - Added scoped Testimonials demo styling.
+*/
+
+/* Page layout. */
+
+.testimonials-page {
+    --review-pink: #bb1565;
+    --review-tint: #fff3f8;
+    --review-border: #e6dce1;
+    --review-muted: #655a61;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #fff;
+    color: #222;
+    color-scheme: light;
+}
+
+.testimonials-page .site-header {
+    flex-shrink: 0;
+    padding: 18px 16px 8px;
+}
+
+.testimonials-page .site-home-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.testimonials-page .site-home-link .site-logo {
+    max-width: 100%;
+}
+
+.testimonials-page .testimonials-content {
+    flex: 1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 12px 16px 36px;
+    line-height: 1.65;
+}
+
+/* Introduction and demo notice. */
+
+.testimonials-page .reviews-intro {
+    padding: 0 0 28px;
+}
+
+.testimonials-page .testimonials-content h1 {
+    margin: 8px 0 12px;
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.testimonials-page .testimonials-content h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    line-height: 1.3;
+}
+
+.testimonials-page .reviews-description {
+    max-width: 540px;
+    margin: 0 auto 20px;
+    color: #555;
+}
+
+.testimonials-page .demo-notice {
+    padding: 12px 16px;
+    background: var(--review-tint);
+    color: #762044;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.testimonials-page .reviews-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.testimonials-page #review-average {
+    font-size: 1.6rem;
+}
+
+.testimonials-page .review-stars {
+    color: var(--review-pink);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+/* Buttons. */
+
+.testimonials-page .review-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+
+    background: var(--review-pink);
+    color: #fff;
+    border: 1px solid var(--review-pink);
+    border-radius: 6px;
+
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.testimonials-page .review-button-secondary {
+    background: #fff;
+    color: #99104f;
+}
+
+.testimonials-page .review-button-small {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+}
+
+.testimonials-page .review-button:not(:disabled):hover,
+.testimonials-page .review-button:focus-visible {
+    background: #111;
+    color: #8aff80;
+    border-color: #111;
+}
+
+.testimonials-page button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.testimonials-page a:focus-visible,
+.testimonials-page button:focus-visible,
+.testimonials-page input:focus-visible,
+.testimonials-page textarea:focus-visible,
+.testimonials-page select:focus-visible {
+    outline: 3px solid #1459c7;
+    outline-offset: 4px;
+}
+
+/* Review panels and responsive grids. */
+
+.testimonials-page .review-panel,
+.testimonials-page .review-card {
+    min-width: 0;
+    padding: 18px;
+    background: #fff;
+    border: 1px solid var(--review-border);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.testimonials-page .review-panel {
+    margin-bottom: 24px;
+}
+
+.testimonials-page .review-fields,
+.testimonials-page .review-toolbar,
+.testimonials-page .review-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.testimonials-page .review-toolbar {
+    margin: 24px 0 12px;
+    text-align: left;
+}
+
+/* Form fields. */
+
+.testimonials-page label,
+.testimonials-page legend {
+    display: block;
+    font-weight: 700;
+}
+
+.testimonials-page label {
+    margin-bottom: 6px;
+}
+
+.testimonials-page input[type="text"],
+.testimonials-page textarea,
+.testimonials-page select {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    background: #fff;
+    color: #222;
+    border: 1px solid #bcaeb6;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 16px;
+}
+
+.testimonials-page textarea {
+    resize: vertical;
+}
+
+.testimonials-page .rating-field {
+    margin: 20px 0;
+    padding: 0;
+    border: 0;
+}
+
+.testimonials-page .rating-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.testimonials-page .rating-choice {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    color: var(--review-pink);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.testimonials-page .rating-choice input {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+}
+
+.testimonials-page .rating-choice:focus-within {
+    outline: 3px solid #1459c7;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.testimonials-page .review-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 18px 0;
+    font-weight: 400;
+}
+
+.testimonials-page .review-consent input {
+    flex-shrink: 0;
+    margin-top: 7px;
+}
+
+.testimonials-page .review-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Review content and status. */
+
+.testimonials-page .review-muted {
+    color: var(--review-muted);
+    font-size: 0.9rem;
+}
+
+.testimonials-page .review-status {
+    color: #762044;
+    overflow-wrap: anywhere;
+}
+
+.testimonials-page .review-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.testimonials-page .review-badge {
+    color: var(--review-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.testimonials-page .review-feedback {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.testimonials-page .review-author {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.testimonials-page .review-town {
+    overflow-wrap: anywhere;
+}
+
+.testimonials-page .review-empty {
+    padding: 24px;
+    background: var(--review-tint);
+}
+
+.testimonials-page .review-load {
+    margin: 24px 0;
+}
+
+.testimonials-page .review-quote {
+    margin-top: 36px;
+}
+
+.testimonials-page .reviews-home-nav {
+    margin-top: 28px;
+}
+
+.testimonials-page [hidden] {
+    display: none !important;
+}
+
+/* Compact sticky footer. */
+
+.testimonials-page .site-footer {
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 16px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.testimonials-page .site-footer p {
+    margin: 4px 0;
+}
+
+.testimonials-page .site-footer .reviews-footer-brand {
+    font-weight: 700;
+}
+
+.testimonials-page .site-footer .reviews-footer-copyright {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+/* Tablet. */
+
+@media (min-width: 768px) {
+    .testimonials-page .testimonials-content {
+        padding: 16px 24px 40px;
+    }
+
+    .testimonials-page .review-fields,
+    .testimonials-page .review-toolbar,
+    .testimonials-page .review-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .testimonials-page .review-panel,
+    .testimonials-page .review-card {
+        padding: 24px;
+    }
+
+    .testimonials-page .reviews-description {
+        font-size: 1.05rem;
+    }
+}
+
+/* Desktop. */
+
+@media (min-width: 1200px) {
+    .testimonials-page .testimonials-content {
+        padding: 18px 32px 48px;
+    }
+}
+
+/* Print. */
+
+@media print {
+    .testimonials-page {
+        display: block;
+        min-height: auto;
+    }
+
+    .testimonials-page .review-panel,
+    .testimonials-page .review-toolbar,
+    .testimonials-page .review-load,
+    .testimonials-page .reviews-home-nav,
+    .testimonials-page .review-button {
+        display: none;
+    }
+
+    .testimonials-page .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-page .review-card {
+        break-inside: avoid;
+    }
+
+    .testimonials-page .site-footer,
+    .testimonials-page .site-footer .reviews-footer-copyright {
+        background: #fff;
+        color: #000;
+    }
+}

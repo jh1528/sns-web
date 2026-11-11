@@ -1,102 +1,127 @@
 <!DOCTYPE html>
+<!--
+    index.html — Signs-n-$hine home page
+
+    Purpose:
+        Introduce cleaning services and provide contact and navigation.
+
+    Dependencies:
+        css/style.css
+        css/index.css
+        images/logo.png
+
+    Author: Jared Husson
+
+    Version History:
+        0.1.6 | 2026-11-11
+        - Changed the heading to "A Fresh Start for Your Space".
+
+        0.1.5 | 2026-11-11
+        - Added a heading and service overview.
+        - Changed the quote button to email Kim.
+        - Removed the separate email button.
+        - Added Services navigation.
+        - Used compact responsive navigation.
+
+        0.1.4 | 2026-11-11
+        - Added one black email button.
+        - Added a sticky footer layout.
+        - Refined mobile, tablet, and desktop layouts.
+
+        0.1.3 | 2026-11-10
+        - Simplified contact information and footer.
+        - Preserved the white page and original pink buttons.
+
+        0.1.2 | 2026-11-10
+        - Updated the website footer.
+
+        0.1.1 | 2026-11-10
+        - Added Testimonials navigation.
+        - Separated home page styling into index.css.
+-->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Signs-n-$hine Cleaning Company offers residential, business, and construction cleanup in Rochester, NY and surrounding communities. Request a free quote."
+    >
+
     <title>Signs-n-$hine Cleaning Company</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body>
-
-    <!-- =========================
-         HEADER
-         ========================= -->
+<body class="home-page">
 
     <header class="site-header">
-
         <img
             src="images/logo.png"
             alt="Signs-n-$hine Cleaning Company"
             class="site-logo"
         >
-
     </header>
-
-
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
 
     <main class="site-main">
 
-        <section class="hero">
+        <section class="hero" aria-labelledby="home-title">
 
-            <!-- FREE QUOTE -->
+            <h1 id="home-title">
+                A Fresh Start for Your Space
+            </h1>
 
-            <a href="sms:5852985162" class="quote-button">
+            <p class="home-intro">
+                Residential, business, and construction cleanup
+                in Rochester, NY and surrounding communities.
+            </p>
+
+            <a
+                href="mailto:Kimmy16Mathews@gmail.com?subject=Cleaning%20Quote%20Request&amp;body=Hi%20Kim%2C%0D%0A%0D%0AI%20would%20like%20a%20free%20cleaning%20quote.%0D%0A%0D%0ACleaning%20type%3A%20%0D%0ALocation%3A%20%0D%0AApproximate%20size%3A%20%0D%0APreferred%20date%3A%20%0D%0AWhat%20needs%20cleaning%3A%20%0D%0A%0D%0AThank%20you%21"
+                class="quote-button"
+            >
                 ASK FOR A FREE QUOTE
             </a>
 
+            <nav class="main-links" aria-label="Main navigation">
 
-            <!-- CONTACT OPTIONS -->
-
-            <div class="contact-buttons">
-
-                <a
-                    href="mailto:Kimmy16Mathews@gmail.com"
-                    class="contact-button"
-                >
-                    ✉ Email
+                <a href="services.html" class="main-link-button">
+                    Services
                 </a>
 
-                <a
-                    href="sms:5852985162"
-                    class="contact-button"
-                >
-                    💬 Text
+                <a href="testimonials.html" class="main-link-button">
+                    Testimonials
                 </a>
-
-                <a
-                    href="tel:5852985162"
-                    class="contact-button"
-                >
-                    ☎ 585-298-5162
-                </a>
-
-            </div>
-
-
-            <!-- MAIN LINKS -->
-
-            <div class="main-links">
 
                 <a href="careers.html" class="main-link-button">
-                    CAREERS
+                    Careers
                 </a>
 
                 <a href="contact.html" class="main-link-button">
-                    CONTACT US
+                    Contact Us
                 </a>
 
-            </div>
+            </nav>
 
         </section>
 
     </main>
 
-
-    <!-- =========================
-         FOOTER
-         ========================= -->
-
     <footer class="site-footer">
 
-        <p>Signs-n-$hine Cleaning Company</p>
-        <p>Text Only</p>
+        <p class="home-footer-brand">
+            Signs-n-$hine Cleaning Company
+        </p>
+
+        <p>Rochester, NY &amp; surrounding communities</p>
+
+        <p class="home-footer-copyright">
+            &copy; 2026 Signs-n-$hine Cleaning Company.
+            All rights reserved.
+        </p>
 
     </footer>
 

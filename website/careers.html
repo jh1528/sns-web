@@ -3,23 +3,36 @@
     careers.html — Signs-n-$hine recruitment page
 
     Purpose:
-        Present the opportunity and open the Google Form in a dialog.
+        Present employment opportunities and the application dialog.
 
     Dependencies:
         css/style.css
+        css/careers.css
         images/logo.png
         Published Signs-n-$hine Google Form
 
     Behavior:
-        Clicking the logo returns to this website's index.html.
+        Logo and Home buttons return to this website's index.html.
         Apply Now opens the application dialog.
         Google Forms handles submission and confirmation.
-        Return to Home opens this website's index.html.
-        The home button remains available throughout the application.
+        The help button opens a text message to Kim.
+        A direct application link remains available as a fallback.
 
     Author: Jared Husson
 
     Version History:
+        0.4.3 | 2026-11-11
+        - Added a Home button with a house icon.
+        - Replaced the inline help link with a text-help button.
+        - Clarified the application submission instructions.
+
+        0.4.2 | 2026-11-11
+        - Moved Careers styling into careers.css.
+        - Matched the home page heading scale and footer.
+        - Added pink buttons with black and green hover states.
+        - Added visible Home navigation.
+        - Improved application dialog sizing on mobile.
+
         0.4.1 | 2026-11-09
         - Made the logo a home link with an accessible label.
 
@@ -35,6 +48,7 @@
         - Highlighted training and disability inclusion.
 -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,109 +56,11 @@
     <title>Careers | Signs-n-$hine Cleaning Company</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .site-home-link {
-            display: inline-block;
-            border-radius: 6px;
-        }
-
-        .site-home-link:focus-visible {
-            outline: 3px solid #1459c7;
-            outline-offset: 5px;
-        }
-
-        .application-dialog {
-            box-sizing: border-box;
-            width: min(96vw, 800px);
-            max-height: 94vh;
-            padding: 0;
-            border: 0;
-            border-radius: 12px;
-            color: #222;
-            background: #fff;
-        }
-
-        .application-dialog::backdrop {
-            background: rgb(0 0 0 / 65%);
-        }
-
-        .application-heading {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 16px 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .application-heading h2 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .application-close {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border: 1px solid #aaa;
-            border-radius: 6px;
-            background: #fff;
-            color: #222;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .application-frame {
-            display: block;
-            width: 100%;
-            height: 60vh;
-            border: 0;
-        }
-
-        .application-footer {
-            padding: 16px 20px;
-            border-top: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .application-footer p {
-            margin: 12px 0 0;
-            font-size: 0.9rem;
-        }
-
-        .application-home {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-height: 44px;
-            padding: 8px 20px;
-            border-radius: 6px;
-            background: #245c39;
-            color: #fff;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .application-home:hover {
-            background: #194329;
-        }
-
-        .application-dialog a:focus-visible,
-        .application-dialog button:focus-visible,
-        #open-application:focus-visible {
-            outline: 3px solid #1459c7;
-            outline-offset: 3px;
-        }
-
-        .application-welcome {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/careers.css">
 </head>
 
 <body class="careers-page">
+
     <header class="site-header">
         <a
             href="index.html"
@@ -160,6 +76,7 @@
     </header>
 
     <main class="careers-content">
+
         <section aria-labelledby="careers-title">
             <h1 id="careers-title">Join Our Cleaning Team</h1>
 
@@ -209,20 +126,35 @@
 
             <p class="application-welcome">
                 We welcome applicants of all backgrounds and abilities.
-                If you need an accommodation during the application
-                process, <a href="sms:5852985162">contact Kim by text</a>.
+                If you need help or an accommodation during the
+                application process, please reach out.
             </p>
 
-            <div class="contact-buttons">
+            <div class="careers-actions">
                 <a
                     id="open-application"
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfqX7YXfDSvDk1jBxurRO0pOlBb_fXDr3pULxLAXdL04O7FSw/viewform"
-                    class="contact-button"
+                    class="careers-button"
                 >
                     Apply Now
                 </a>
+
+                <a
+                    href="sms:5852985162?body=Hi%20Kim%2C%20I%20need%20help%20with%20the%20job%20application."
+                    class="careers-button careers-button-secondary"
+                >
+                    Need help? Text Kim
+                </a>
             </div>
         </section>
+
+        <nav class="careers-home-nav" aria-label="Home navigation">
+            <a href="index.html" class="careers-button careers-button-small">
+                <span aria-hidden="true">⌂</span>
+                Home
+            </a>
+        </nav>
+
     </main>
 
     <dialog
@@ -253,8 +185,13 @@
         ></iframe>
 
         <div class="application-footer">
-            <a href="index.html" class="application-home">
-                <span aria-hidden="true">🏠</span>
+            <p class="application-instructions">
+                Select Submit inside the form to send your application.
+                A confirmation message will appear after submission.
+            </p>
+
+            <a href="index.html" class="careers-button">
+                <span aria-hidden="true">⌂</span>
                 Return to Home
             </a>
 
@@ -272,7 +209,16 @@
     </dialog>
 
     <footer class="site-footer">
-        <p>Signs-n-$hine Cleaning Company</p>
+        <p class="careers-footer-brand">
+            Signs-n-$hine Cleaning Company
+        </p>
+
+        <p>Rochester, NY &amp; surrounding communities</p>
+
+        <p class="careers-footer-copyright">
+            &copy; 2026 Signs-n-$hine Cleaning Company.
+            All rights reserved.
+        </p>
     </footer>
 
     <script>
@@ -284,15 +230,16 @@
             const closeButton = document.getElementById("close-application");
             const frame = document.getElementById("application-frame");
 
-            // Keep the normal application link as a browser fallback.
+            // Preserve the direct application link on older browsers.
             if (typeof dialog.showModal !== "function") {
                 return;
             }
 
             openLink.setAttribute("aria-haspopup", "dialog");
+            openLink.setAttribute("aria-controls", "application-dialog");
 
             openLink.addEventListener("click", (event) => {
-                // Preserve normal new-tab and modified-click behavior.
+                // Preserve modified clicks and normal new-tab behavior.
                 if (
                     event.button !== 0 ||
                     event.ctrlKey ||
@@ -305,7 +252,7 @@
 
                 event.preventDefault();
 
-                // Load once to avoid resetting the form when reopened.
+                // Load once so closing and reopening preserves progress.
                 if (!frame.hasAttribute("src")) {
                     frame.src = openLink.href + "?embedded=true";
                 }
@@ -319,10 +266,13 @@
                 dialog.close();
             });
 
+            // Native dialog behavior also supports Escape.
             dialog.addEventListener("close", () => {
                 openLink.focus();
             });
         })();
     </script>
+
 </body>
+
 </html>
