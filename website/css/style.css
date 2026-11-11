@@ -2,20 +2,31 @@
  * style.css — Signs-n-$hine shared website styles
  *
  * Purpose:
- *   Provide shared branding, homepage components, Careers layout,
- *   responsive behavior, and Careers print presentation.
+ *   Provide shared base styling, branding, contact buttons, and footer.
+ *   Retain existing Careers rules until its dedicated CSS refactor.
  *
  * Usage:
- *   Link this file from pages using href="css/style.css".
- *   Careers-specific styles require class="careers-page" on body.
+ *   Load this file before each page's own stylesheet.
+ *
+ * Layout contract:
+ *   Shared header padding and responsive logo dimensions live here.
+ *   Page-specific styles must preserve these branding positions.
+ *   Shared footer presentation applies to matching footer markup.
  *
  * Author: Jared Husson
  *
  * Version History:
+ *   0.2.2 | 2026-11-10
+ *   - Added responsive Company, Explore, and Contact footer.
+ *   - Added Text, Call, Email, and copyright presentation.
+ *
+ *   0.2.1 | 2026-11-10
+ *   - Moved homepage-specific rules into css/index.css.
+ *   - Preserved shared branding and existing Careers styles.
+ *
  *   0.2.0 | 2026-10-18
  *   - Added scoped Careers layout and print styles.
  *   - Reused shared logo, contact buttons, and footer.
- *   - Preserved existing homepage presentation.
  */
 
 
@@ -58,54 +69,6 @@ a {
 
 
 /* ==========================================================================
-   HOMEPAGE MAIN CONTENT
-   ========================================================================== */
-
-.site-main {
-    padding: 10px 20px 30px;
-}
-
-
-/* ==========================================================================
-   HOMEPAGE FREE QUOTE BUTTON
-   ========================================================================== */
-
-.quote-button {
-    display: inline-block;
-    padding: 16px 28px;
-
-    background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(120, 255, 130, 0.95) 0 2px,
-            transparent 3px
-        ),
-        radial-gradient(
-            circle at 75% 65%,
-            rgba(120, 255, 130, 0.85) 0 2px,
-            transparent 3px
-        ),
-        linear-gradient(
-            135deg,
-            #ff5aaa 0%,
-            #ff2f96 55%,
-            #d91d7d 100%
-        );
-
-    color: white;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-
-    border: 1px solid rgba(120, 255, 130, 0.55);
-    border-radius: 6px;
-
-    box-shadow:
-        0 0 8px rgba(80, 220, 90, 0.4),
-        0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-
-/* ==========================================================================
    SHARED CONTACT BUTTONS
    ========================================================================== */
 
@@ -132,74 +95,96 @@ a {
 
 
 /* ==========================================================================
-   HOMEPAGE CAREERS AND CONTACT LINKS
-   ========================================================================== */
-
-.main-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 24px;
-}
-
-.main-link-button {
-    display: block;
-    width: 280px;
-    max-width: 90%;
-    padding: 15px 20px;
-
-    background:
-        radial-gradient(
-            circle at 18% 30%,
-            rgba(120, 255, 130, 0.95) 0 2px,
-            transparent 3px
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(120, 255, 130, 0.85) 0 2px,
-            transparent 3px
-        ),
-        linear-gradient(
-            135deg,
-            #ff5aaa 0%,
-            #ff2f96 55%,
-            #d91d7d 100%
-        );
-
-    color: white;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-
-    border: 1px solid rgba(120, 255, 130, 0.55);
-    border-radius: 6px;
-
-    box-shadow:
-        0 0 8px rgba(80, 220, 90, 0.4),
-        0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-
-/* ==========================================================================
    SHARED FOOTER
    ========================================================================== */
 
 .site-footer {
     margin-top: 30px;
-    padding: 24px 20px;
+    padding: 32px 20px 20px;
 
     background: #111;
     color: white;
+
+    line-height: 1.6;
+}
+
+.site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 28px;
+
+    max-width: 960px;
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+.site-footer .footer-grid > * {
+    min-width: 0;
 }
 
 .site-footer p {
     margin: 6px 0;
+    overflow-wrap: anywhere;
+}
+
+.site-footer .footer-brand {
+    margin-top: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.site-footer .footer-heading {
+    margin: 0 0 8px;
+
+    color: #ff91c3;
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.site-footer .footer-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-footer .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+
+    color: white;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.site-footer .footer-links a:hover {
+    color: #ff91c3;
+}
+
+.site-footer .footer-links a:focus-visible {
+    outline: 3px solid #ff91c3;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.site-footer .footer-bottom {
+    max-width: 960px;
+    margin: 24px auto 0;
+    padding-top: 16px;
+
+    border-top: 1px solid #555;
+
+    text-align: center;
+    font-size: 0.85rem;
 }
 
 
 /* ==========================================================================
-   CAREERS PAGE
-   All Careers layout rules are scoped to .careers-page.
+   EXISTING CAREERS STYLES
+   Retained until the separate Careers CSS refactor.
    ========================================================================== */
 
 .careers-page {
@@ -215,11 +200,13 @@ a {
     max-width: 960px;
     margin: 0 auto;
     padding: 0 24px 40px;
+
     line-height: 1.6;
 }
 
 .careers-page .careers-content h1 {
     margin: 12px 0;
+
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.15;
 }
@@ -235,9 +222,6 @@ a {
     font-size: 1.15rem;
 }
 
-
-/* Job highlights use semantic list markup in careers.html. */
-
 .careers-page .careers-highlights {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -245,6 +229,7 @@ a {
 
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
 
@@ -259,6 +244,7 @@ a {
 
 .careers-page .careers-highlights strong {
     display: block;
+
     color: var(--careers-accent);
     font-size: 1.2rem;
 }
@@ -268,9 +254,6 @@ a {
     max-width: 680px;
     margin: 36px auto 0;
 }
-
-
-/* Keep keyboard focus clearly visible. */
 
 .careers-page a:focus-visible {
     outline: 3px solid var(--careers-accent);
@@ -283,6 +266,12 @@ a {
    ========================================================================== */
 
 @media (max-width: 600px) {
+    .site-footer .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+    }
+
     .careers-page .careers-highlights {
         grid-template-columns: 1fr;
     }
@@ -291,11 +280,6 @@ a {
 @media (min-width: 768px) {
     .site-logo {
         width: 390px;
-    }
-
-    .main-links {
-        flex-direction: row;
-        justify-content: center;
     }
 }
 
@@ -307,8 +291,7 @@ a {
 
 
 /* ==========================================================================
-   CAREERS PRINT PRESENTATION
-   Show contact destinations on paper where buttons cannot be clicked.
+   EXISTING CAREERS PRINT PRESENTATION
    ========================================================================== */
 
 @media print {
@@ -354,5 +337,16 @@ a {
 
     .careers-page .careers-next-step a[href^="mailto:"]::after {
         content: " — Kimmy16Mathews@gmail.com";
+    }
+
+    .site-footer,
+    .site-footer .footer-heading,
+    .site-footer .footer-links a {
+        background: white;
+        color: black;
+    }
+
+    .site-footer .footer-bottom {
+        border-top-color: black;
     }
 }

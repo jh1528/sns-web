@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--
+    testimonials.html — Signs-n-$hine local review demo
+
+    Dependencies:
+        css/style.css
+        css/testimonials.css
+        js/testimonials.js
+        images/logo.png
+
+    Demo:
+        Sample reviews and browser storage only.
+        No public submission API.
+
+    Author: Jared Husson
+
+    Version History:
+        0.1.2 | 2026-11-11
+        - Matched the approved home page presentation.
+        - Added a Home button and compact footer.
+        - Changed the quote action to email Kim.
+
+        0.1.1 | 2026-11-10
+        - Updated footer navigation.
+
+        0.1.0 | 2026-11-10
+        - Added the local Testimonials demo.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testimonials Demo | Signs-n-$hine Cleaning Company</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <script src="js/testimonials.js" defer></script>
+</head>
+
+<body class="testimonials-page">
+
+    <header class="site-header">
+        <a
+            href="index.html"
+            class="site-home-link"
+            aria-label="Signs-n-$hine home"
+        >
+            <img
+                src="images/logo.png"
+                alt="Signs-n-$hine Cleaning Company"
+                class="site-logo"
+            >
+        </a>
+    </header>
+
+    <main class="testimonials-content" id="testimonials-app">
+
+        <section class="reviews-intro" aria-labelledby="reviews-title">
+            <h1 id="reviews-title">What Our Clients Say</h1>
+
+            <p class="reviews-description">
+                A little care. A cleaner space.
+                Share your experience with us.
+            </p>
+
+            <p class="demo-notice">
+                Local demo — sample reviews, not real customer endorsements.
+                Your test reviews stay in this browser.
+                Nothing is published.
+            </p>
+
+            <div class="reviews-summary">
+                <strong id="review-average">—</strong>
+                <span
+                    id="average-stars"
+                    class="review-stars"
+                    aria-hidden="true"
+                ></span>
+                <span id="review-total">Demo ratings</span>
+            </div>
+
+            <button
+                type="button"
+                id="open-review"
+                class="review-button"
+                aria-expanded="false"
+                aria-controls="review-panel"
+                disabled
+            >
+                Share Your Experience
+            </button>
+        </section>
+
+        <section
+            id="review-panel"
+            class="review-panel"
+            aria-labelledby="review-form-title"
+            hidden
+        >
+            <h2 id="review-form-title">How did we do?</h2>
+            <p>This is a demo. Please use test details only.</p>
+
+            <form id="review-form">
+                <div class="review-fields">
+                    <div>
+                        <label for="review-name">Display name</label>
+                        <input
+                            id="review-name"
+                            type="text"
+                            required
+                            maxlength="60"
+                            placeholder="First name and last initial"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="review-town">Town (optional)</label>
+                        <input
+                            id="review-town"
+                            type="text"
+                            maxlength="60"
+                            placeholder="e.g. Rochester"
+                        >
+                    </div>
+                </div>
+
+                <fieldset class="rating-field">
+                    <legend>Your rating</legend>
+
+                    <div class="rating-options">
+                        <label class="rating-choice">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="1"
+                                required
+                                aria-label="1 star"
+                            >
+                            <span aria-hidden="true">☆</span>
+                        </label>
+
+                        <label class="rating-choice">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="2"
+                                aria-label="2 stars"
+                            >
+                            <span aria-hidden="true">☆</span>
+                        </label>
+
+                        <label class="rating-choice">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="3"
+                                aria-label="3 stars"
+                            >
+                            <span aria-hidden="true">☆</span>
+                        </label>
+
+                        <label class="rating-choice">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="4"
+                                aria-label="4 stars"
+                            >
+                            <span aria-hidden="true">☆</span>
+                        </label>
+
+                        <label class="rating-choice">
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="5"
+                                aria-label="5 stars"
+                            >
+                            <span aria-hidden="true">☆</span>
+                        </label>
+                    </div>
+
+                    <p
+                        id="rating-label"
+                        class="review-muted"
+                        aria-live="polite"
+                    >
+                        Choose 1–5 stars
+                    </p>
+                </fieldset>
+
+                <label for="review-text">Your experience</label>
+                <textarea
+                    id="review-text"
+                    required
+                    minlength="10"
+                    maxlength="1500"
+                    rows="4"
+                    placeholder="Tell us about your cleaning experience."
+                ></textarea>
+
+                <label class="review-consent">
+                    <input id="review-consent" type="checkbox" required>
+                    <span>
+                        I agree to display this feedback, rating,
+                        display name, and optional town in this demo.
+                    </span>
+                </label>
+
+                <div class="review-actions">
+                    <button type="submit" class="review-button">
+                        Post Demo Review
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-review"
+                        class="review-button review-button-secondary"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <p id="review-status" class="review-status" role="status"></p>
+
+        <noscript>
+            <p>Enable JavaScript to try the local reviews demo.</p>
+        </noscript>
+
+        <section aria-label="Demo reviews">
+            <div class="review-toolbar">
+                <div>
+                    <label for="rating-filter">Rating</label>
+                    <select id="rating-filter">
+                        <option value="all">All ratings</option>
+                        <option value="5">5 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="2">2 stars</option>
+                        <option value="1">1 star</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="review-sort">Sort by</label>
+                    <select id="review-sort">
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                        <option value="highest">Highest rating</option>
+                        <option value="lowest">Lowest rating</option>
+                    </select>
+                </div>
+            </div>
+
+            <p
+                id="review-matches"
+                class="review-muted"
+                aria-live="polite"
+            ></p>
+
+            <div id="review-list" class="review-grid"></div>
+
+            <p id="review-empty" class="review-empty" hidden></p>
+
+            <div class="review-load">
+                <button
+                    id="load-reviews"
+                    type="button"
+                    class="review-button review-button-secondary"
+                    hidden
+                >
+                    Load More
+                </button>
+            </div>
+        </section>
+
+        <section class="review-quote" aria-labelledby="review-quote-title">
+            <h2 id="review-quote-title">Ready for a fresh start?</h2>
+            <p>Talk with Kim about cleaning your home or business.</p>
+
+            <a
+                href="mailto:Kimmy16Mathews@gmail.com?subject=Cleaning%20Quote%20Request"
+                class="review-button"
+            >
+                Ask for a Free Quote
+            </a>
+        </section>
+
+        <nav class="reviews-home-nav" aria-label="Home navigation">
+            <a href="index.html" class="review-button review-button-small">
+                <span aria-hidden="true">⌂</span>
+                Home
+            </a>
+        </nav>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="reviews-footer-brand">
+            Signs-n-$hine Cleaning Company
+        </p>
+
+        <p>Rochester, NY &amp; surrounding communities</p>
+
+        <p class="reviews-footer-copyright">
+            &copy; 2026 Signs-n-$hine Cleaning Company.
+            All rights reserved.
+        </p>
+    </footer>
+
+</body>
+
+</html>
