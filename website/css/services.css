@@ -1,0 +1,198 @@
+/*
+    services.css — Signs-n-$hine Services page styles
+    Author: Jared Husson
+
+    Version History:
+        0.1.0 | 2026-11-12
+        - Added responsive service panels, referral actions, and footer.
+*/
+
+.services-page {
+    --services-pink: #bb1565;
+    --services-black: #111;
+    --services-green: #8aff80;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #fff;
+    color: #222;
+    color-scheme: light;
+}
+
+.services-page .services-logo-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.services-page .services-content {
+    flex: 1;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 12px 18px 36px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.services-page h1 {
+    margin: 8px 0 22px;
+    font-size: clamp(1.6rem, 4vw, 2.35rem);
+    line-height: 1.2;
+}
+
+.services-page details {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.services-page summary,
+.services-page .services-button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid var(--services-pink);
+    border-radius: 6px;
+    background: var(--services-pink);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.services-page summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 48px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.services-page summary::-webkit-details-marker {
+    display: none;
+}
+
+.services-page summary::after {
+    content: "+" / "";
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.services-page details[open] > summary::after {
+    content: "−" / "";
+}
+
+.services-page .services-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.95rem;
+}
+
+.services-page .services-button-secondary {
+    background: #fff;
+    color: #99104f;
+}
+
+.services-page summary:hover,
+.services-page summary:focus-visible,
+.services-page details[open] > summary,
+.services-page .services-button:hover,
+.services-page .services-button:focus-visible {
+    border-color: var(--services-black);
+    background: var(--services-black);
+    color: var(--services-green);
+}
+
+.services-page a:focus-visible,
+.services-page summary:focus-visible {
+    outline: 3px solid #1459c7;
+    outline-offset: 4px;
+}
+
+.services-page .services-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    padding: 16px;
+}
+
+.services-page .services-panel figure,
+.services-page .services-panel p {
+    margin: 0;
+}
+
+.services-page .services-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.services-page .services-panel figcaption {
+    margin-top: 4px;
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.services-page .services-quote,
+.services-page .services-home {
+    margin-top: 24px;
+}
+
+.services-page .services-referrals {
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid #ddd;
+}
+
+.services-page .services-referrals h2 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+}
+
+.services-page .services-referrals p {
+    max-width: 460px;
+    margin: 0 auto 14px;
+    color: #555;
+}
+
+.services-page .services-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.services-page .site-footer {
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 16px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.services-page .site-footer p {
+    margin: 4px 0;
+}
+
+.services-page .site-footer .services-copyright {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 560px) {
+    .services-page .services-panel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
